@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heidi.slowspace | 五感整合療癒 - 讓高敏感成為你的力量</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8da399; /* 鼠尾草綠 */
+            --accent-color: #d4a373;  /* 暖陶土色 */
+            --bg-color: #faf9f6;      /* 暖白色 */
+            --text-color: #4a4a4a;
+            --light-text: #888;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Noto Serif TC', serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 249, 246, 0.95);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), 
+                        url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-family: 'Noto Serif TC', serif;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.4s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 1px;
+            background: var(--accent-color);
+            margin: 1rem auto;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            background: #f2f0ed;
+            padding: 60px 5%;
+            border-radius: 20px;
+        }
+
+        .pain-card {
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* 5 Senses Section */
+        .senses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sense-box {
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .sense-box:hover {
+            border-color: var(--primary-color);
+            background: var(--white);
+        }
+
+        .sense-box h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Product Section */
+        .product-highlight {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: #fff;
+            padding: 4rem;
+            border-radius: 30px;
+            margin-top: 4rem;
+        }
+
+        .product-img {
+            flex: 1;
+            background: #eee;
+            height: 400px;
+            border-radius: 20px;
+            background-image: url('https://images.unsplash.com/photo-1547610292-8503ee013022?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            padding: 60px;
+        }
+
+        .booking-section h2 { color: white; }
+        .booking-section h2::after { background: white; }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        input, select, textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        textarea { grid-column: span 2; height: 120px; }
+
+        .form-btn {
+            grid-column: span 2;
+            padding: 1rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 5%; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2rem; }
+            .product-highlight { flex-direction: column; padding: 2rem; }
+            form { grid-template-columns: 1fr; }
+            textarea, .form-btn { grid-column: span 1; }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">heidi.slowspace</div>
+        <div class="nav-links">
+            <a href="#about">關於 Heidi</a>
+            <a href="#philosophy">療癒理念</a>
+            <a href="#services">五感服務</a>
+            <a href="#product">靈魂香氣</a>
+            <a href="#booking">預約諮詢</a>
+        </div>
+    </nav>
+
+    <!-- Page 1: Hero -->
+    <header id="home">
+        <div class="hero-content fade-in">
+            <p>25-50 歲高敏感都市女性的靜心之地</p>
+            <h1>停止內耗，從呼吸到感官的重新連結</h1>
+            <p>透過「五感整合療癒」，帶你從混亂的思緒中走出來，活出具體而踏實的人生。</p>
+            <a href="#services" class="btn">開啟療癒之旅</a>
+        </div>
+    </header>
+
+    <!-- Page 2: About Heidi -->
+    <section id="about">
+        <h2>關於 Heidi</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>我曾經也是那個日日擔心得罪人、因為過度感知外界而身心俱疲的女孩。我明白那種「腦袋停不下來」的焦慮。</p>
+            <br>
+            <p>作為一名身心靈五感療癒師，我不再只談抽象的道理，而是透過視覺、聽覺、觸覺、味覺與嗅覺，將療癒轉化為具體的行動，幫助像我一樣的高敏感專業人士，找回內在的導航系統。</p>
+        </div>
+    </section>
+
+    <!-- Page 3: Pain Points & Target -->
+    <section id="philosophy">
+        <h2>妳是否也感到...</h2>
+        <div class="pain-points">
+            <div class="pain-card">
+                <h3>身心靈很虛幻？</h3>
+                <p>想接觸卻覺得太抽象，看不見摸不著，讓你缺乏安全感與掌控感。</p>
+            </div>
+            <div class="pain-card">
+                <h3>情緒內耗嚴重？</h3>
+                <p>對環境太敏銳，知道很多道理卻依然糾結，無法做出讓自己舒服的決定。</p>
+            </div>
+            <div class="pain-card">
+                <h3>拒絕宿命論？</h3>
+                <p>不想要傳統算命的結果論，你需要的是一套能覺察卡點並能一步步執行的方案。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4-8: The 5 Senses (Interactive) -->
+    <section id="services">
+        <h2>五感整合療癒：將療癒具象化</h2>
+        <div class="senses-container">
+            <div class="sense-box">
+                <h3>視覺 (Visual)</h3>
+                <p><strong>看清藍圖，作出決定</strong></p>
+                <p>利用塔羅視覺化潛意識，看清當下盲點，不再被混亂思緒困擾。</p>
+            </div>
+            <div class="sense-box">
+                <h3>聽覺與觸覺</h3>
+                <p><strong>處理情緒，根治內耗</strong></p>
+                <p>在靈氣與音樂引導下，深度認識真實需求，學會處理高敏感帶來的情緒波動。</p>
+            </div>
+            <div class="sense-box">
+                <h3>味覺與嗅覺</h3>
+                <p><strong>能量落地，達成目標</strong></p>
+                <p>透過花茶與客製香氣，將療癒狀態帶回日常，獲得持續的能量支持。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 9: Entry Level Product -->
+    <section id="product">
+        <h2>入門體驗：靈魂香氣調頻</h2>
+        <div class="product-highlight">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h3>客製化能量錨點香水</h3>
+                <p>這是一支「懂你當下狀態」的專屬香氣。</p>
+                <br>
+                <ul style="list-style: none;">
+                    <li>✓ 快速切換工作與休息模式</li>
+                    <li>✓ 隨時隨地的焦慮開關</li>
+                    <li>✓ 與靈魂產生連結的專屬配方</li>
+                </ul>
+                <br>
+                <a href="#booking" class="btn">立即訂製專屬香氣</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 10: Booking System -->
+    <section id="booking">
+        <div class="booking-section">
+            <h2>預約妳的慢空間</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">給自己一個小時，停止內耗。請填寫以下資訊，我會盡快與妳聯絡。</p>
+            <form id="contactForm">
+                <input type="text" placeholder="妳的名字" required>
+                <input type="email" placeholder="電子郵件" required>
+                <select required>
+                    <option value="">選擇妳感興趣的服務</option>
+                    <option value="5senses">五感整合療癒 (1:1 諮商)</option>
+                    <option value="perfume">靈魂香氣調頻 (客製香水)</option>
+                    <option value="consult">初步諮詢 (15分鐘)</option>
+                </select>
+                <select required>
+                    <option value="">適合預約的時間段</option>
+                    <option value="morning">平日早上</option>
+                    <option value="afternoon">平日下午</option>
+                    <option value="weekend">週末</option>
+                </select>
+                <textarea placeholder="請簡單分享妳目前的困擾..."></textarea>
+                <button type="submit" class="form-btn">確認提交預約</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">heidi.slowspace</div>
+        <p>© 2024 heidi.slowspace. All rights reserved.</p>
+        <p>讓高敏感成為妳最溫柔的力量。</p>
+    </footer>
+
+    <script>
+        // Simple Form Submission Alert
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感謝妳的信任，Heidi 會在 48 小時內透過電子郵件與妳聯絡。請先喝一杯溫水，放鬆一下。');
+            this.reset();
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 1s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
